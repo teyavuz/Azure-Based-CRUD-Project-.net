@@ -1,0 +1,100 @@
+﻿@model BulutBilişim.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+<section class="jumbotron text-center" style="background-color:white">
+    <div class="container">
+        <div class="container">
+            <h4>Bu Kullanıcı İşlemi Tamamlamanız Ardından Geri Alınamaz Bir Şekilde Veritabanından Kaldırılacaktır!</h4>
+            <hr />
+            <div class="col-md-9">
+
+                <div>
+                    <h4>Silmek İstediğiniz Kullanıcıya Ait Bilgiler</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">İsim:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">Soyisim:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Surname)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">Yetkinlik:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Mission)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">TelefonNo:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PhoneNumber)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">Eposta:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MailAdress)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">Adres:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Adress)
+                        </dd>
+
+                        <dt>
+                            <span class="control-label col-md-2" style="font-weight:bold">ReferansURL:</span>
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Reference)
+                        </dd>
+
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Sil!" class="btn btn-default" />
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@Html.ActionLink("Listeye Geri Dön.", "Index")
+
+
+
+

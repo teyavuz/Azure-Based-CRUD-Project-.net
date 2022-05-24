@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BulutBilişim.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Yönetici Sayfası</h2>
+<br />
+
+<section class="jumbotron text-center" style="background-color:white">
+    <div class="container">
+        <div class="row">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        İsim
+                    </th>
+                    <th>
+                        Soyisim
+                    </th>
+                    <th>
+                        Yetkinlik
+                    </th>
+                    <th>
+                        Telefon No
+                    </th>
+                    <th>
+                        E-posta
+                    </th>
+                    <th>
+                        Adres
+                    </th>
+                    <th>
+                        Referans Url
+                    </th>
+                    <th>
+                        Kullanıcı Tipi
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Mission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MailAdress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Reference)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserType.UserTypeName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Detaylar", "Details", new { id = item.UserID })
+                            @Html.ActionLink("Düzenle", "Edit", new { id = item.UserID })
+                            @Html.ActionLink("Sil", "Delete", new { id = item.UserID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    </div>
+</section>
+

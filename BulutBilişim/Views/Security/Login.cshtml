@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="jumbotron text-center" style="background-color:white">
+    <div class="container">
+        <main class="form-signin">
+            @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+            {
+                <img class="mb-4" src="https://www.logovector.org/wp-content/uploads/logos/png/k/kocaeli_universitesi_logo.png" alt="" width="72" height="72">
+                <h1 class="h3 mb-3 fw-normal">Lütfen Giriş Yap</h1>
+
+                <div class="">
+                    <label for="floatingInput">Kullanıcı Adı</label>
+                    <input style="margin-left: auto; margin-right: auto;" class="form-control" required="" name="AdminName">
+                </div>
+                <div class="">
+                    <label for="floatingPassword">Şifreniz</label>
+                    <input style="margin-left: auto; margin-right: auto;" type="password" class="form-control" required name="AdminPassword">
+                </div>
+
+                <br />
+
+                <button class=" btn  btn-primary" type="submit">Giriş Yap</button>
+                <p class="mt-5 mb-3 text-muted">191307020</p>
+            }
+
+        </main>
+    </div>
+</section>

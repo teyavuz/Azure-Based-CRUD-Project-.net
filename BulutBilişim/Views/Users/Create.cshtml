@@ -1,0 +1,108 @@
+﻿@model BulutBilişim.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1 style="font-weight:bold">Kayıt Ekranı</h1>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="jumbotron text-center" style="background-color:white">
+        <div class="container">
+            <div class="container">
+                <h4>Sizinle Sağlıklı Bir Şekilde İletişime Geçebilmemiz İçin Lütfen Kaydınızı Eksiksiz Tamamlayınız!</h4>
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">İsminiz:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Soyisminiz:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Mission, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Yetkinliğiniz:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Mission, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Mission, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Telefon No:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "*Ülke koduna gerek yoktur", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.MailAdress, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Mailiniz:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.MailAdress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MailAdress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Adresiniz:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @*@Html.LabelFor(model => model.Reference, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <span class="control-label col-md-2" style="font-weight:bold">Varsa Referansınız:</span>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Reference, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Reference, "*LinkedIn URL", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Kaydol" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
